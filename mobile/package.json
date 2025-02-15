@@ -32,7 +32,7 @@
       "preset": "react-native"
     },
     "config": {
-      "backendUrl": "https://datetoday-production.up.railway.app"
+      "getBackendURL": "https://datetoday-production.up.railway.app"
     }
   }
   
