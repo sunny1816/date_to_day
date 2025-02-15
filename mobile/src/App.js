@@ -4,10 +4,12 @@ import { View, TextInput, Text, StyleSheet, useColorScheme, TouchableOpacity, Im
 // Automatically detect the correct backend URL
 const getBackendURL = () => {
   const LOCAL_IP = "192.168.176.112"; // Replace with your actual local network IP
-  if (Platform.OS === "android") {
-    return `http://${LOCAL_IP}:5000`; // Android Emulator or Real Device
+  
+  if (__DEV__) {
+    return `http://${LOCAL_IP}:5000`; // Use local backend during development
   }
-  return "http://localhost:5000"; // iOS / Web Localhost
+  
+  return "https://datetoday-production.up.railway.app"; // Replace with your actual Railway backend URL
 };
 
 const BACKEND_URL = getBackendURL();
@@ -46,7 +48,7 @@ const App = () => {
   return (
     <View style={[styles.container, colorScheme === "dark" ? styles.darkContainer : styles.lightContainer]}>
       <Image 
-        source={require("../assets/calendar-249.png")} 
+        source={require("./assets/calendar-249.png")} 
         style={[styles.logo, colorScheme === "dark" ? styles.darkLogo : null]} 
       />
       
