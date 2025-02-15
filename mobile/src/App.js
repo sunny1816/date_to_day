@@ -10,7 +10,7 @@ const getBackendURL = () => {
   return "http://localhost:5000"; // iOS / Web Localhost
 };
 
-const BACKEND_URL = getBackendURL();
+const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
 const App = () => {
   const [date, setDate] = useState("");
